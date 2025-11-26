@@ -6,12 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.syslex.artimetrics.report.*;
 
-import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Properties;
 import java.util.stream.Stream;
 
 public class ReportBuilder {
@@ -72,34 +69,12 @@ public class ReportBuilder {
 
     public Report buildReport() {
         report = new Report();
-        collectGenerator();
         collectProgramming();
         collectArtifact();
         collectParent();
         collectDependencies();
         collectPlugins();
         return report;
-    }
-
-    /**
-     * Collect information about report generation and add it to report
-     */
-    void collectGenerator() {
-        // ensure that report contains generator object
-        if (Objects.isNull(report.generator))
-            report.generator = new Generator();
-
-        final Properties properties = new Properties();
-        try {
-            properties.load(this.getClass().getClassLoader().getResourceAsStream("project.properties"));
-        } catch (final IOException e) {
-            logger.warn("Error loading project properties file to extract generator name and version", e);
-        }
-
-        // set values for generator
-        report.generator.name = properties.getProperty("artifactId");
-        report.generator.version = properties.getProperty("version");
-        report.generator.generatedAt = OffsetDateTime.now();
     }
 
     /**

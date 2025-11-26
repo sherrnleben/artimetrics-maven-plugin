@@ -11,23 +11,24 @@ import org.syslex.artimetrics.report.Report;
 import java.io.FileReader;
 import java.io.IOException;
 
-@Mojo(name = "sayhi")
+@Mojo(name = "report")
 public class ArtiMetricsReporter extends AbstractMojo {
 
-    @Parameter(property = "artimetrics.server")
+    @Parameter(property = "server")
     private String server;
 
-    @Parameter(property = "artimetrics.reporting-token")
+    @Parameter(property = "reporting-token")
     private String reportingToken;
 
+    @Override
     public void execute() {
         getLog().info("Start collecting artifact information for ArtiMetrics.");
+        final Report report;
         try {
-            final var report = buildReport();
+            report = buildReport();
             getLog().info("Finished collecting artifact information for ArtiMetrics.");
         } catch (Exception e) {
-            getLog().error(e);
-            e.printStackTrace();
+            getLog().warn("Error while collecting artifact information for ArtiMetrics.", e);
         }
     }
 

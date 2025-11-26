@@ -9,7 +9,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.syslex.artimetrics.report.Report;
 
-import java.time.OffsetDateTime;
 import java.util.Properties;
 
 class ReportBuilderTest {
@@ -49,19 +48,6 @@ class ReportBuilderTest {
         final var reportBuilder = new ReportBuilder(model);
         reportBuilder.report = new Report();
         return reportBuilder;
-    }
-
-    @Test
-    @DisplayName("collect generator")
-    public void collectGenerator() {
-        final var rp = initReportBuilder(null);
-        rp.collectGenerator();
-        Assertions.assertNotNull(rp.report.generator);
-        Assertions.assertEquals("artimetrics-maven-plugin", rp.report.generator.name);
-        Assertions.assertNotNull(rp.report.generator.version);
-        Assertions.assertTrue(rp.report.generator.version.length() > 4);
-        Assertions.assertTrue(rp.report.generator.generatedAt.isBefore(OffsetDateTime.now().plusSeconds(1)));
-        Assertions.assertTrue(rp.report.generator.generatedAt.isAfter(OffsetDateTime.now().minusSeconds(5)));
     }
 
     @Test
