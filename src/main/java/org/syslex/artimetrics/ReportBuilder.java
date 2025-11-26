@@ -1,10 +1,10 @@
-package org.syslex.artitracker;
+package org.syslex.artimetrics;
 
 import org.apache.maven.model.Model;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.syslex.artitracker.report.*;
+import org.syslex.artimetrics.report.*;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;

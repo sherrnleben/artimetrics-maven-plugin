@@ -4,13 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.syslex.artitracker</groupId>
-    <artifactId>artitracker-maven-plugin</artifactId>
+    <groupId>org.syslex.artimetrics</groupId>
+    <artifactId>artimetrics-maven-plugin</artifactId>
     <version>2025.0.0-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
-    <name>ArtiTracker Maven Plugin</name>
-    <description>Maven plugin for collecting artifact information and publishing it to a central ArtiTracker instance.</description>
+    <name>ArtiMetrics Maven Plugin</name>
+    <description>Maven plugin for collecting artifact information and publishing it to a central ArtiMetrics instance.
+    </description>
     <url>https://github.com/sherrnleben/artitracker-maven-plugin</url>
 
     <licenses>

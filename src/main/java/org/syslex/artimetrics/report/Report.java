@@ -1,4 +1,4 @@
-package org.syslex.artitracker.report;
+package org.syslex.artimetrics.report;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;

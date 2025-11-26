@@ -1,4 +1,4 @@
-package org.syslex.artitracker;
+package org.syslex.artimetrics;
 
 import org.apache.maven.model.Build;
 import org.apache.maven.model.Model;
@@ -7,7 +7,7 @@ import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.syslex.artitracker.report.Report;
+import org.syslex.artimetrics.report.Report;
 
 import java.time.OffsetDateTime;
 import java.util.Properties;
@@ -57,7 +57,7 @@ class ReportBuilderTest {
         final var rp = initReportBuilder(null);
         rp.collectGenerator();
         Assertions.assertNotNull(rp.report.generator);
-        Assertions.assertEquals("artitracker-maven-plugin", rp.report.generator.name);
+        Assertions.assertEquals("artimetrics-maven-plugin", rp.report.generator.name);
         Assertions.assertNotNull(rp.report.generator.version);
         Assertions.assertTrue(rp.report.generator.version.length() > 4);
         Assertions.assertTrue(rp.report.generator.generatedAt.isBefore(OffsetDateTime.now().plusSeconds(1)));

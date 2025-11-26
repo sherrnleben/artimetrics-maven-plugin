@@ -1,4 +1,4 @@
-package org.syslex.artitracker.report;
+package org.syslex.artimetrics.report;
 
 public enum DependencyInclusion {
 
