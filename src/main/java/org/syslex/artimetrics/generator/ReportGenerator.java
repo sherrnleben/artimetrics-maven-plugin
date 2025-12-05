@@ -5,14 +5,10 @@ import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.syslex.artimetrics.report.Generator;
 import org.syslex.artimetrics.report.Report;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.OffsetDateTime;
-import java.util.Objects;
-import java.util.Properties;
 
 public class ReportGenerator {
 
@@ -42,30 +38,8 @@ public class ReportGenerator {
 
     public Report generateReport() {
         final var report = new Report();
-        collectGenerator(report);
+        new GeneratorCollector().supply(report);
         return report;
     }
 
-    /**
-     * Collect information about report generation and add it to the generated report
-     *
-     * @param report the report to which the generator information should be added
-     */
-    void collectGenerator(final Report report) {
-        // ensure that the report object contains the generator object
-        if (Objects.isNull(report.generator))
-            report.generator = new Generator();
-
-        final Properties properties = new Properties();
-        try {
-            properties.load(this.getClass().getClassLoader().getResourceAsStream("project.properties"));
-        } catch (final IOException e) {
-            logger.warn("Error loading project properties file to extract generator name and version", e);
-        }
-
-        // set values for generator
-        report.generator.name = properties.getProperty("artifactId");
-        report.generator.version = properties.getProperty("version");
-        report.generator.generatedAt = OffsetDateTime.now();
-    }
 }
