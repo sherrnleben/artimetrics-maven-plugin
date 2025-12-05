@@ -17,7 +17,7 @@ public class Report {
     public ArtifactIdentity artifact;
 
     @JsonProperty
-    public Programming programming;
+    public Programming language;
 
     @JsonProperty
     public List<Dependency> dependencies;

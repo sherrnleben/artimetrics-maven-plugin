@@ -39,6 +39,7 @@ public class ReportGenerator {
     public Report generateReport() {
         final var report = new Report();
         new GeneratorCollector().supply(report);
+        new ProgrammingCollector(pomModel).supply(report);
         return report;
     }
 
