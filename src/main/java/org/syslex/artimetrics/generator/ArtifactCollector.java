@@ -18,7 +18,7 @@ public class ArtifactCollector implements Collector {
     }
 
     @Override
-    public void supply(Report report) {
+    public void supply(final Report report) {
         // ensure that report contains artifact object
         if (Objects.isNull(report.artifact))
             report.artifact = new ArtifactIdentity();

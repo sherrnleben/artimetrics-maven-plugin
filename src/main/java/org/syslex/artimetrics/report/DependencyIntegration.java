@@ -1,6 +1,6 @@
 package org.syslex.artimetrics.report;
 
-public enum DependencyInclusion {
+public enum DependencyIntegration {
 
     DEPENDENCY,
     PARENT,

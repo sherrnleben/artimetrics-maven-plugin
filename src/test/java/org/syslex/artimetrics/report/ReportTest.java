@@ -38,7 +38,7 @@ public class ReportTest {
         dependency.group = "com.example";
         dependency.name = "test-plugin";
         dependency.version = "2024.5-SNAPSHOT";
-        dependency.inclusion = DependencyInclusion.PLUGIN;
+        dependency.integration = DependencyIntegration.PLUGIN;
 
         report.dependencies = List.of(dependency);
 

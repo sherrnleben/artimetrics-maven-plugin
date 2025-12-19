@@ -40,6 +40,7 @@ public class ReportGenerator {
         final var report = new Report();
         new GeneratorCollector().supply(report);
         new ProgrammingCollector(pomModel).supply(report);
+        new ArtifactCollector(pomModel).supply(report);
         return report;
     }
 

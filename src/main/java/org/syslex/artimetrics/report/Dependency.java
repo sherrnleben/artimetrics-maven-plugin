@@ -7,6 +7,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Dependency extends ArtifactIdentity {
 
     @JsonProperty
-    public DependencyInclusion inclusion;
+    public DependencyIntegration integration;
 
 }
